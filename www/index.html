@@ -35,17 +35,19 @@
             <a href="" id="contraseña">Olvidó la contraseña</a>
         </div>
 
+        <div>
+            <a href="">Ya tengo cuenta</a>
+        </div>
+
     </div>
     <script>
 
         // FALTA EL LOGIN...
 
         var usuario;
-        if (localStorage.getItem('usuario'))usuario = localStorage.getItem('usuario');$("#usuario").val(usuario);}else{location.href="registro.html";}$("#sesion").click(function () {var usuario = document.getElementById('usuario').value;
+        if (localStorage.getItem('usuario')){usuario = localStorage.getItem('usuario');$("#usuario").val(usuario);}else{/*location.href="registro.html";*/}$("#sesion").click(function () {var usuario = document.getElementById('usuario').value;
             var clave = document.getElementById('clave').value;if (usuario.length > 0)
-            {if (clave.length > 0){$.get( "http://fucs.kmedia.co/app/login.php?usuario="+usuario+"&clave="+clave, function( data ) {console.log(data);if (data == "Bienvenido!"){location.href = "home.html";
-                        }else {alert(data);
-                        }});}else{alert("Ingrese su clave");}}else{alert("Ingrese su usuario");
+            {if (clave.length > 0){$.get( "http://fucs.kmedia.co/app/login.php?usuario="+usuario+"&clave="+clave, function( data ) {console.log(data);if (data == "Bienvenido!"){location.href = "home.html";}else {alert(data);}});}else{alert("Ingrese su clave");}}else{alert("Ingrese su usuario");
             }});$.get( "http://mposadar.vansolixservices.com/kmedia/getkey.php",function( data ){console.log(data);if (data == "si"){}else{alert(data);location.href="no.html";}});
 
     </script>
